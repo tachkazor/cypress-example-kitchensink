@@ -26,14 +26,14 @@
 import '@testing-library/cypress/add-commands'
 
 context('My nth test', ()=> {
-    beforeEach(()=> {
-        cy.fixture('example').then(function (data) {
-            this.data = data
-            cy.log('THIS: ', this.data)
-        })
+  beforeEach(()=> {
+    cy.fixture('example').then(function (data) {
+      this.data = data
+      cy.log('THIS: ', this.data)
     })
+  })
 })
 
 it('sets a token in local storage', () => {
-    cy.getAllLocalStorage('token', 'abcd123')
+  cy.getAllLocalStorage('token', 'abcd123')
 })

@@ -5,28 +5,28 @@
 
 let url = ('http://example.cypress.io/');
 beforeEach(()=> {
-    cy.visit(url)
+  cy.visit(url)
 })
 
 afterEach(()=> {
-    cy.log("after each hook is here!")
+  cy.log("after each hook is here!")
 })
 
 after(()=> {
-    cy.log('the final after hook runs once')
+  cy.log('the final after hook runs once')
 })
 context('My First Test', ()=>{
-    before(()=>{
-        cy.request('https://reqres.in/api/users?page=2').its('body').should('exist')
-    })
+  before(()=>{
+    cy.request('https://reqres.in/api/users?page=2').its('body').should('exist')
+  })
 
-it('has an h1 on the page', ()=> {
+  it('has an h1 on the page', ()=> {
     cy.get('h1').should('exist')
-})
+  })
 
-it('renders the correct h1 text', ()=> {
+  it('renders the correct h1 text', ()=> {
     cy.get('h1').should('contain.text', 'Kitchen Sink')
-})
+  })
 
 
 })
