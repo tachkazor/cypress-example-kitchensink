@@ -23,3 +23,17 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+import '@testing-library/cypress/add-commands'
+
+context('My nth test', ()=> {
+    beforeEach(()=> {
+        cy.fixture('example').then(function (data) {
+            this.data = data
+            cy.log('THIS: ', this.data)
+        })
+    })
+})
+
+it('sets a token in local storage', () => {
+    cy.getAllLocalStorage('token', 'abcd123')
+})
